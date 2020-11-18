@@ -127,20 +127,19 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See `MIT License` for more information.
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Danilo Dughetti - [@your_twitter](https://twitter.com/your_username) - danilo.dughetti@gmail.com
+Danilo Dughetti - danilo.dughetti@gmail.com
 
 Project Link: [https://github.com/DaniloDughetti/domainchecker](https://github.com/DaniloDughetti/domainchecker)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
+<!--
 ## Acknowledgements
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
@@ -154,12 +153,10 @@ Project Link: [https://github.com/DaniloDughetti/domainchecker](https://github.c
 * [JVectorMap](http://jvectormap.com)
 * [Font Awesome](https://fontawesome.com)
 
+-->
 
 
 
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
 [contributors-url]: https://github.com/DaniloDughetti/domainchecker/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
