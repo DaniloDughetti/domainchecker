@@ -8,12 +8,6 @@ CREATE TABLE IF NOT EXISTS users (
     datecreation DATE
 );
 
-CREATE TABLE IF NOT EXISTS watcheddomains (
-    user VARCHAR(255) NOT NULL,
-    domain INT NOT NULL,
-	PRIMARY KEY(user, domain)
-);
-
 CREATE TABLE IF NOT EXISTS domains (
     id INT AUTO_INCREMENT PRIMARY KEY,
     url VARCHAR(255) NOT NULL,
@@ -27,21 +21,33 @@ CREATE TABLE IF NOT EXISTS domains (
     dateupdated DATE
 );
 
-CREATE TABLE IF NOT EXISTS mailinglists (
-    user VARCHAR(255) NOT NULL,
-    notificationalert INT NOT NULL,
-    PRIMARY KEY(user, notificationalert)
-);
-
 CREATE TABLE IF NOT EXISTS notificationalerts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(255) NOT NULL,
     activationtime INT NOT NULL,
-    active INT NOT NULL
+    active INT NOT NULL,
+    FOREIGN KEY (user) REFERENCES users(email)
+);
+
+CREATE TABLE IF NOT EXISTS watcheddomains (
+    user VARCHAR(255) NOT NULL,
+    domain INT NOT NULL,
+	PRIMARY KEY(user, domain),
+    FOREIGN KEY (user) REFERENCES users(email),
+    FOREIGN KEY (domain) REFERENCES domains(id)
+);
+
+CREATE TABLE IF NOT EXISTS mailinglists (
+    user VARCHAR(255) NOT NULL,
+    notificationalert INT NOT NULL,
+    PRIMARY KEY(user, notificationalert),
+    FOREIGN KEY (user) REFERENCES users(email),
+    FOREIGN KEY (notificationalert) REFERENCES notificationalerts(id)
 );
 
 CREATE TABLE IF NOT EXISTS notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,
     notificationalert INT NOT NULL,
-    rundate DATE
+    rundate DATE,
+    FOREIGN KEY (notificationalert) REFERENCES notificationalerts(id)
 );
