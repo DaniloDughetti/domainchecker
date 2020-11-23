@@ -2,13 +2,13 @@ package com.danilodughetti.domainchecker.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -26,15 +26,16 @@ public class NotificationAlert {
 	
 	@Getter
 	@Setter
-	@Column(name="user")
-	private User ownerUser;
+	@ManyToOne
+	@JoinColumn(name = "user")
+	private User user;
 	
 	@Getter
 	@Setter
 	@ManyToMany
 	@JoinTable(
 	  name = "mailinglists", 
-	  joinColumns = @JoinColumn(name = "notificationAlert"), 
+	  joinColumns = @JoinColumn(name = "notificationalert"), 
 	  inverseJoinColumns = @JoinColumn(name = "user"))
 	private List<User> mailingList;
 	

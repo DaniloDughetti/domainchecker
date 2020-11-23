@@ -34,7 +34,7 @@ public class User {
 	private List<Domain> domains;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "user")
 	private List<NotificationAlert> notificationAlerts;
 		 
 	@Getter       
