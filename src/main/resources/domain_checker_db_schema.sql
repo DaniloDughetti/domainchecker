@@ -5,13 +5,13 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL,
     surname VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,    
-    datecreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    datecreation DATE
 );
 
 CREATE TABLE IF NOT EXISTS watcheddomains (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(255) NOT NULL,
-    domain INT NOT NULL
+    domain INT NOT NULL,
+	PRIMARY KEY(user, domain)
 );
 
 CREATE TABLE IF NOT EXISTS domains (
@@ -22,20 +22,26 @@ CREATE TABLE IF NOT EXISTS domains (
     registrar VARCHAR(255),
     registrarname VARCHAR(255),
     status VARCHAR(20),
-    datecreation TIMESTAMP,
-    dateexpiration TIMESTAMP,
-    dateupdated TIMESTAMP
+    datecreation DATE,
+    dateexpiration DATE,
+    dateupdated DATE
 );
 
 CREATE TABLE IF NOT EXISTS mailinglists (
-    id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(255) NOT NULL,
-    notificationalert INT NOT NULL
+    notificationalert INT NOT NULL,
+    PRIMARY KEY(user, notificationalert)
 );
 
-CREATE TABLE IF NOT EXISTS notification_alert (
+CREATE TABLE IF NOT EXISTS notificationalerts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(255) NOT NULL,
-    activation_time INT NOT NULL,
+    activationtime INT NOT NULL,
     active INT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    notificationalert INT NOT NULL,
+    rundate DATE
 );
